@@ -1,3 +1,12 @@
+developer details
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Trust A Mubaiwa
+trustmub@gmail.com
+https://github.com/trustmub/byteorbit
+
+
+
 Login Details
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 username : trustmub
