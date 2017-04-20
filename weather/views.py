@@ -68,8 +68,7 @@ def weatherupdate(request):
     return render(request, 'weather/weather_view.html')
 
 
-class ListWeather(APIView):
-    def get(self, request, format=None):
-        weather = models.Weather.objects.all()
-        serializer = serializers.WeatherSerializer(weather, many=True)
-        return Response(serializer.data)
+# used a generic class based view to manage pagination gracefully
+class ListWeather(generics.ListCreateAPIView):
+    queryset = models.Weather.objects.all()
+    serializer_class = serializers.WeatherSerializer
