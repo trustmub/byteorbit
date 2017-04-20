@@ -26,3 +26,8 @@ bootstrap 3.3.7
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Class based views have been used for the accounts app.
+
+API Framework
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+DRF 3.6.2
+http://127.0.0.1:8000/api-auth/login/
