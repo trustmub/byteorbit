@@ -1,0 +1,30 @@
+{% include 'home.html' %}
+
+{%  block my_content %}
+    <div class="container">
+
+    <h1>This where the weather is going</h1>
+    <table class="table table-responsive">
+    <tr class="table-bordered">
+        <td>Date</td>
+        <td>Min Temp</td>
+        <td>Max Temp</td>
+        <td>Speed Speed</td>
+        <td>Precipitation</td>
+        <td>Summary</td>
+    </tr>
+    {% for list in weather %}
+    <tr>
+        <td>{{ list.my_date }}</td>
+        <td>{{ list.min_temp }}</td>
+        <td>{{ list.max_temp }}</td>
+        <td>{{ list.wind_speed }}</td>
+        <td>{{ list.rain }}</td>
+        <td>{{ list.summary }}</td>
+    </tr>
+
+    {% endfor %}
+    </table>
+    </div>
+
+{% endblock %}

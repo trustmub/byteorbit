@@ -1,0 +1,35 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'layout.css' %}" type="text/css" >
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top">
+<div class="container">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><li><a href="{% url 'home' %}">home</a></li></li>
+                <li><li><a href="{% url 'weather' %}">Weather</a></li></li>
+                  <li><li><a href="{% url 'load' %}">Load</a></li></li>
+              </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'logout' %}">logout</a></li>
+                    <li><a href="{% url 'signup' %}">Register</a></li>
+                </ul>
+            </div>
+        </div>
+</div>
+</nav>
+<div class="container">
+this before
+    {% block my_content %}{% endblock %}
+this is under view
+</div>
+</body>
+</html>
