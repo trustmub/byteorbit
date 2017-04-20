@@ -15,9 +15,12 @@
               <ul class="nav navbar-nav">
                 <li><li><a href="{% url 'home' %}">home</a></li></li>
                 <li><li><a href="{% url 'weather' %}">Weather</a></li></li>
-                  <li><li><a href="{% url 'load' %}">Load</a></li></li>
+                <li><li><a href="{% url 'load' %}">Load</a></li></li>
               </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'api' %}">API</a></li>
+                    {% endif %}
                     <li><a href="{% url 'login' %}">Login</a></li>
                     <li><a href="{% url 'logout' %}">logout</a></li>
                     <li><a href="{% url 'signup' %}">Register</a></li>
@@ -26,10 +29,10 @@
         </div>
 </div>
 </nav>
+
 <div class="container">
-this before
-    {% block my_content %}{% endblock %}
-this is under view
+    <h3>This is the Weather App Assignment.</h3>
 </div>
+    {% block my_content %}{% endblock %}
 </body>
 </html>
