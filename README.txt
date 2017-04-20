@@ -24,8 +24,8 @@ bootstrap 3.3.7
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 Class based views have been used for the accounts app.
+
 
 API Framework
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
