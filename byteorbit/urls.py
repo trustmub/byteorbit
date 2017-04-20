@@ -19,11 +19,10 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.home, name='home'),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^weather/', include('weather.urls')),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

@@ -31,3 +31,4 @@ API Framework
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 DRF 3.6.2
 http://127.0.0.1:8000/api-auth/login/
+http://127.0.0.1:8000/weather/api/v1/
