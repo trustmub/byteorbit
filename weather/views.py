@@ -2,7 +2,10 @@ import time
 import urllib.request
 import json
 
+from django.http import HttpResponseNotFound
 from django.shortcuts import render
+from django.views.generic import ListView
+
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -54,21 +57,36 @@ def load_weather_data_to_db():
                                            summary=daily_summary)
                     print("Record Inserted")
     except Exception as e:
-        return "Please Check Your Internet Connection: {}".format(e)  # json_data['daily':['summary']]
+        return HttpResponseNotFound('<h1>No internet connection</h1><br><p>Data cannot be loaded at this point,'
+                                    'please click <a href="{% url "weather" %}">here</a></p>')
+        # return "Please Check Your Internet Connection: {}".format(e)  # json_data['daily':['summary']]
 
 
-def weather_view(request):
-    weather = Weather.objects.all()
-    # load_weather_data_to_db()
-    return render(request, 'weather/weather_view.html', {'weather': weather})
+# def weather_view(request):
+#     weather = Weather.objects.all()
+#     # load_weather_data_to_db()
+#     return render(request, 'weather/weather_list.html', {'weather': weather})
+
+# this is a Class Based View for the list of database entries
+# with a respective weather_list.html template
+# and same context object in the template
+class WeatherListView(ListView):
+    context_object_name = "weather"
+    model = models.Weather
 
 
 def weatherupdate(request):
     load_weather_data_to_db()
-    return render(request, 'weather/weather_view.html')
+    return render(request, 'weather/weather_list.html')
+    # return load_weather_data_to_db()
 
 
 # used a generic class based view to manage pagination gracefully
 class ListWeather(generics.ListCreateAPIView):
+    queryset = models.Weather.objects.all()
+    serializer_class = serializers.WeatherSerializer
+
+
+class RetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Weather.objects.all()
     serializer_class = serializers.WeatherSerializer
