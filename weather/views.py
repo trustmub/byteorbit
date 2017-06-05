@@ -72,6 +72,7 @@ def load_weather_data_to_db():
 # and same context object in the template
 class WeatherListView(ListView):
     context_object_name = "weather"
+    queryset = models.Weather.objects.order_by('-my_date')
     model = models.Weather
 
 
